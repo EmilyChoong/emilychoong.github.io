@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — Emily Choong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="blob blob--page"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand__home" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.4 12 3.6l9 6.8"/><path d="M5.2 9.6V20h13.6V9.6"/><path d="M9.6 20v-6.2h4.8V20"/></svg></span><span>Emily Choong</span></a>
+    <nav class="nav">
+      <a href="experience.html">Experience</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="cv.html">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap page-head" data-screen-label="Projects">
+    <span class="label">Projects</span>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-intro">My projects span data analysis, machine learning, data engineering and AI, mostly built during my year in industry.</p>
+    <p class="page-intro">What I enjoy most is taking a question, figuring out what the data can tell me, and turning that into something useful — whether that’s an insight, a model or a working tool.</p>
+    <p class="folders-hint">Pick a file to open it</p>
+  </section>
+
+  <div class="wrap">
+    <div class="folder-stack" data-screen-label="Project folders">
+      <button class="folder tone-green" type="button" data-doc="doc-1" style="--slot:0;--i:3;--tx:46%">
+        <span class="folder__tab"><span class="folder__name">Cause-of-Claim</span></span>
+        <span class="folder__face">
+          <span class="folder__no">01</span>
+          <span class="folder__title">Cause-of-Claim Classifier</span>
+           <span class="folder__open">Open →</span>
+        </span>
+      </button>
+      <button class="folder tone-rose" type="button" data-doc="doc-2" style="--slot:1;--i:2;--tx:58%">
+        <span class="folder__tab"><span class="folder__name">Underwriting</span></span>
+        <span class="folder__face">
+          <span class="folder__no">02</span>
+          <span class="folder__title">Underwriting Normalisation</span>
+           <span class="folder__open">Open →</span>
+        </span>
+      </button>
+      <button class="folder tone-peri" type="button" data-doc="doc-3" style="--slot:2;--i:1;--tx:70%">
+        <span class="folder__tab"><span class="folder__name">Comorbidity</span></span>
+        <span class="folder__face">
+          <span class="folder__no">03</span>
+          <span class="folder__title">Studying Condition Comorbidity</span>
+           <span class="folder__open">Open →</span>
+        </span>
+      </button>
+      <button class="folder tone-amber" type="button" data-doc="doc-4" style="--slot:3;--i:0;--tx:82%">
+        <span class="folder__tab"><span class="folder__name">Schema Agent</span></span>
+        <span class="folder__face">
+          <span class="folder__no">04</span>
+          <span class="folder__title">AI Data Schema Agent</span>
+           <span class="folder__open">Open →</span>
+        </span>
+      </button>
+      <span class="folder folder--outer" aria-hidden="true" style="--slot:4;--i:-1"></span>
+    </div>
+  </div>
+</main>
+
+<div id="project-docs">
+
+  <article class="doc tone-green" data-id="doc-1">
+    <div class="doc__rule"></div>
+    <div class="doc__inner">
+      <p class="doc__eyebrow"><span class="dot"></span> File 01</p>
+      <h2 class="doc__title">Cause-of-Claim Classifier</h2>
+      <div class="doc__meta">
+        <span class="tag">NLP</span><span class="tag">Machine Learning</span><span class="tag">Data Engineering</span>
+      </div>
+      <div class="doc__body">
+        <p>Insurance claims were recorded as inconsistent free text, making them difficult to analyse consistently.</p>
+        <p class="doc__sub">What I did</p>
+        <ul class="doc__list">
+          <li>Built a hierarchical Random Forest + TF-IDF classifier to map free-text claims onto a structured medical taxonomy.</li>
+          <li>Improved accuracy from <strong>37% → 95%</strong> through better text preprocessing, without changing the model.</li>
+          <li>Designed the system to flag uncertain cases for human review rather than guessing.</li>
+          <li>Implemented into the production data pipeline, automatically classifying 90%+ of claims.</li>
+        </ul>
+        <p class="doc__sub">What I took from it</p>
+        <p>Good data preparation can matter more than model sophistication. This project also gave me my first hands-on experience building an NLP system from scratch.</p>
+      </div>
+      <div class="doc__actions">
+        <a class="doc__gh" href="https://github.com/EmilyChoong/Cause-of-Claim-Classifier" target="_blank" rel="noopener">View repo on GitHub ↗</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="doc tone-rose" data-id="doc-2">
+    <div class="doc__rule"></div>
+    <div class="doc__inner">
+      <p class="doc__eyebrow"><span class="dot"></span> File 02</p>
+      <h2 class="doc__title">Underwriting Normalisation</h2>
+      <div class="doc__meta">
+        <span class="tag">Data Engineering</span><span class="tag">Clustering</span><span class="tag">Risk Modelling</span><span class="tag">LLMs</span>
+      </div>
+      <div class="doc__body">
+        <p>Underwriting data contained over 500,000 unique free-text question–answer pairs, making it difficult to use for downstream analysis.</p>
+        <p class="doc__sub">What I did</p>
+        <ul class="doc__list">
+          <li>Built a pipeline using text embeddings and K-means to transform messy responses into <strong>9 interpretable risk markers</strong>.</li>
+          <li>Validated the markers through statistical analysis and predictive modelling, with a decision-tree model achieving 0.977 AUC.</li>
+          <li>Worked with underwriting guidelines and medical literature to refine the taxonomy.</li>
+          <li>Contributed to the process of introducing LLM automation, considering data privacy, prompt injection, version control and governance.</li>
+        </ul>
+        <p class="doc__sub">What I took from it</p>
+        <p>I enjoyed this project because it combined technical work with judgement — the model was only one part of the solution.</p>
+      </div>
+      <div class="doc__actions">
+        <a class="doc__gh" href="https://github.com/EmilyChoong/Customer-Risk-Profiling" target="_blank" rel="noopener">View repo on GitHub ↗</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="doc tone-peri" data-id="doc-3">
+    <div class="doc__rule"></div>
+    <div class="doc__inner">
+      <p class="doc__eyebrow"><span class="dot"></span> File 03</p>
+      <h2 class="doc__title">Studying Condition Comorbidity</h2>
+      <div class="doc__meta">
+        <span class="tag">Data Analysis</span><span class="tag">Survival Modelling</span><span class="tag">Healthcare</span>
+      </div>
+      <div class="doc__body">
+        <p>How do lifestyle factors and combinations of health conditions affect mortality?</p>
+        <p>Working with <strong>1+ billion rows</strong> of UK GP records, I built and structured analysis datasets before investigating how conditions interacted with one another.</p>
+        <p class="doc__sub">What I did</p>
+        <ul class="doc__list">
+          <li>Cleaned and transformed longitudinal healthcare data, handling missingness, inconsistent inputs and observation periods.</li>
+          <li>Investigated interactions between conditions and lifestyle factors using XGBoost, SHAP and ultimately Cox survival modelling.</li>
+          <li>Explored unexpected results through further analysis and existing medical research rather than assuming the model was wrong.</li>
+          <li>Presented findings and conclusions to the wider team as part of the company's work towards entering the annuities market.</li>
+        </ul>
+        <p class="doc__sub">What I took from it</p>
+        <p>Data science rarely gives you a single “correct” answer. Good analysis is about building enough evidence to make a well-informed decision.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="doc tone-amber" data-id="doc-4">
+    <div class="doc__rule"></div>
+    <div class="doc__inner">
+      <p class="doc__eyebrow"><span class="dot"></span> File 04</p>
+      <h2 class="doc__title">AI Data Schema Agent</h2>
+      <div class="doc__meta">
+        <span class="tag">AI</span><span class="tag">Python</span><span class="tag">Data Documentation</span>
+      </div>
+      <div class="doc__body">
+        <p>People across the company frequently needed help navigating complex datasets, creating a constant stream of ad-hoc questions.</p>
+        <p>I built an AI-powered data schema assistant that could explain tables and fields, identify where information was stored, and even generate SQL for questions such as:</p>
+        <blockquote>“What is the sum assured split by product and gender?”</blockquote>
+        <p>I automated the documentation of <strong>12 large datasets</strong>, including field definitions, data types, ranges and row counts, before connecting the documentation to Microsoft Copilot.</p>
+        <p class="doc__sub">What I took from it</p>
+        <p>I enjoy building small tools that remove repetitive work and make data more accessible to others.</p>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="doc-overlay" id="doc-overlay" role="dialog" aria-modal="true" aria-label="Project file">
+  <div class="doc-scrim" data-close></div>
+  <div class="doc-mount" id="doc-mount"></div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__links">
+      <a href="index.html">← Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="cv.html">CV</a>
+    </div>
+    <small>© 2026 Emily Choong</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var overlay=document.getElementById('doc-overlay'),mount=document.getElementById('doc-mount'),last=null;
+  function open(id){
+    var src=document.querySelector('#project-docs .doc[data-id="'+id+'"]');
+    if(!src)return;
+    mount.innerHTML='';
+    var node=src.cloneNode(true);
+    var close=document.createElement('button');
+    close.className='doc__close';close.type='button';close.setAttribute('data-close','');
+    close.setAttribute('aria-label','Close');close.innerHTML='✕';
+    node.appendChild(close);
+    mount.appendChild(node);
+    overlay.classList.add('is-open');
+    document.documentElement.style.overflow='hidden';
+    node.scrollTop=0;
+    close.focus();
+  }
+  function shut(){
+    overlay.classList.remove('is-open');
+    document.documentElement.style.overflow='';
+    setTimeout(function(){mount.innerHTML=''},360);
+    if(last)last.focus();
+  }
+  document.querySelectorAll('.folder').forEach(function(b){
+    b.addEventListener('click',function(){last=b;open(b.dataset.doc)});
+  });
+  overlay.addEventListener('click',function(e){
+    if(e.target.hasAttribute('data-close')||e.target.closest('[data-close]'))shut();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&overlay.classList.contains('is-open'))shut();
+  });
+})();
+</script>
+
+</body>
+</html>

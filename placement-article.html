@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Notes from a Year in Data — Emily Choong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .article ul { list-style: none; margin: 4px 0 22px; padding-left: 4px; color: var(--ink-2); }
+  .article li {
+    position: relative; padding-left: 22px;
+    margin-bottom: 9px; line-height: 1.5;
+    font-family: var(--sans); font-size: clamp(15px, 1.5vw, 16.5px);
+  }
+  .article li::before { content: "\2606"; position: absolute; left: 0; top: 1px; font-size: 13px; color: var(--accent-2); }
+  .article li:last-child { margin-bottom: 0; }
+  .claim-sample {
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+    font-size: 13.5px; line-height: 1.5; color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line); border-left: 3px solid var(--accent-2);
+    border-radius: 0 4px 4px 0;
+    padding: 12px 16px; margin: 8px 0 16px;
+  }
+  .article .abbr { font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace; }
+  .article .abbr li { font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace; font-size: 14px; }
+  .article .abbr li::before { content: ""; }
+  .ov-meta { display: grid; gap: 14px; margin: 4px 0 26px; }
+  .ov-meta > div { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: baseline; }
+  .ov-meta .label { padding-top: 4px; }
+  .ov-meta p { margin: 0; color: var(--ink); font-size: clamp(15px, 1.6vw, 17px); }
+</style>
+</head>
+<body>
+
+<div class="blob blob--page"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">Emily Choong</a>
+    <nav class="nav">
+      <a href="experience.html#pacific-life-re">← Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="article" data-screen-label="Notes from a Year in Data">
+
+    <header class="article-head">
+      <span class="label">Pacific Life Re · Data Science Placement · 2025–2026</span>
+      <h1>Notes from a Year in Data</h1>
+    </header>
+
+    <section class="asection">
+      <p class="marker">Overview</p>
+      <div class="ov-meta">
+        <div><span class="label">Role</span><p>Data Science Placement (Year in Industry)</p></div>
+        <div><span class="label">Duration</span><p>12 months (2025 – 2026)</p></div>
+        <div><span class="label">Focus</span><p>Claims classification, underwriting data, and turning messy information into decisions</p></div>
+      </div>
+      <p>When I started my placement at Pacific Life Re, I thought the interesting part of data science was the modelling. I wanted to build sophisticated algorithms and treat everything before that as setup: clean the data quickly, fit a model, move on.</p>
+      <p>A year later, almost everything I’m proud of came from the parts I used to think of as <em>setup</em>.</p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">Working with messy data</p>
+      <p>Most of the data I worked with wasn’t neat. Insurance claims were recorded as free text, underwriting decisions varied between insurers, and a single medical condition could be described in half a dozen ways: abbreviated, misspelled, or bundled together in the same sentence.</p>
+      <p>The same condition might be recorded as:</p>
+      <div class="claim-sample">myocardial infarction&nbsp;&nbsp;·&nbsp;&nbsp;heart attack&nbsp;&nbsp;·&nbsp;&nbsp;acute coronary artery insufficiency</div>
+      <p>All three are just ways of saying <em>heart attack</em>. Obvious to a person, completely different to a computer. A large part of my year went into cleaning records, standardising terminology, engineering features, and deciding what information actually mattered. It wasn’t glamorous work, but it was where most of the value came from.</p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">The model wasn’t the bottleneck</p>
+      <p>One project involved building a classifier to sort free-text insurance claims into a structured hierarchy of medical causes. The original idea was straightforward:</p>
+      <blockquote>Can we automatically answer the question: why are customers claiming?</blockquote>
+      <p>At first I assumed the challenge would be choosing the right model. It wasn’t. The real challenge was making the data consistent enough that a model could understand it at all. I designed a three-level taxonomy of over 250 claim categories and spent months manually reviewing claims, grouping similar conditions, and refining labels with feedback from the claims team.</p>
+      <p>Then came preprocessing. Medical abbreviations had to be expanded (<strong>MI</strong> → myocardial infarction, <strong>DVT</strong> → deep vein thrombosis, <strong>IHD</strong> → ischaemic heart disease), claims containing multiple conditions had to be split into separate components before classification, and spelling variations had to be normalised. Only after all of that could the model even begin to learn.</p>
+      <p>The most surprising result was that the model architecture barely changed. The first version reached around <strong>37% accuracy</strong>; after improving the preprocessing pipeline alone, without touching the model, accuracy climbed to <strong>95%</strong>. That was probably the clearest lesson of the year:</p>
+      <blockquote>Data quality isn’t a preliminary step.<br />It’s often the most important part of the work.</blockquote>
+      <p>The classifier was eventually integrated into the company’s claims pipeline and used to populate dashboards tracking causes of claims across insurers.</p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">Learning to respect the limits of data</p>
+      <p>One of the most valuable projects I worked on didn’t end with a model. We were looking at whether higher daily step counts were associated with lower mortality, and the relationship was clear: people who walked more tended to live longer, with the effect particularly strong in lower-affluence groups. It would have been easy to stop there.</p>
+      <p>But the business didn’t really care about a correlation. They wanted to know:</p>
+      <blockquote>If we encourage people to walk more, will they actually become healthier?</blockquote>
+      <p>And that turns out to be a much harder question. People who walk more also tend to sleep better, eat differently, be more health-conscious, and differ in ways the data simply can’t observe, so no amount of modelling could isolate walking perfectly from all those other factors. The analysis wasn’t wrong, but the causal conclusion people wanted wasn’t one the data could support.</p>
+      <p>That project changed how I think about analysis. Now one of the first questions I ask is:</p>
+      <blockquote>What can this dataset genuinely tell us?<br />And just as importantly, what can’t it tell us?</blockquote>
+    </section>
+
+    <section class="asection">
+      <p class="marker">Turning unstructured information into decisions</p>
+      <p>The second major project I worked on involved underwriting data. The company had millions of records containing question-and-answer histories from insurance applications, but the questions weren’t standardised. Different insurers asked slightly different things, and the same medical risk factor might appear dozens of times in different wording.</p>
+      <p>My task was to create a normalisation framework. I used text embeddings and clustering to group semantically similar questions, then worked alongside underwriting guidelines and medical literature to consolidate them into nine interpretable risk markers. In total, this reduced over <strong>500,000 unique question-answer pairs</strong>, spread across millions of underwriting records, into <strong>nine core indicators</strong> of hypertension risk: things like treatment compliance, previous hospitalisation, whether the customer was awaiting further investigations, and history of high blood pressure.</p>
+      <p>The modelling itself turned out to be the easy part. The difficult part was deciding which features genuinely represented risk, which distinctions mattered clinically, and how to preserve information without oversimplifying it. I learned that structuring data isn’t a purely technical exercise. <em>It’s a conversation between the data, the domain experts, and the people who will eventually use the results.</em></p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">The analysis isn’t finished until someone can use it</p>
+      <p>Before this placement, I thought communication happened after the real work. I don’t think that anymore. Some of the most effective presentations I gave contained almost no machine learning at all.</p>
+      <p>On the underwriting project, one statistic landed far more strongly than any model output:</p>
+      <blockquote>91% of declined customers were flagged as non-compliant with treatment, compared with only 2% of standard accepts.</blockquote>
+      <p>People understood that immediately. Only after establishing those intuitive patterns did I introduce feature-importance plots and predictive models. And I found that stakeholders rarely asked <em>“what algorithm did you use?”</em> Instead they asked how confident we were, what assumptions we were making, whether it could be explained another way, and what decision we should make. Those are harder questions. They’re also the ones that matter.</p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">What I took away</p>
+      <p>I started this placement wanting to build models. I left with a much greater appreciation for everything around them. The habits I’ve kept are surprisingly simple:</p>
+      <ul>
+        <li>Start with the boring questions.</li>
+        <li>Understand what the data can and cannot tell you.</li>
+        <li>Spend as much time structuring and validating information as modelling it.</li>
+      </ul>
+    </section>
+
+    <div class="report-banner">
+      <span>Emily Choong · BSc Data Science with a Year in Industry · University of Bristol</span>
+      <a class="linklet" href="experience.html#pacific-life-re">← Back to experience</a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__links">
+      <a href="index.html">← Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+    </div>
+    <small>© 2026 Emily Choong</small>
+  </div>
+</footer>
+
+</body>
+</html>

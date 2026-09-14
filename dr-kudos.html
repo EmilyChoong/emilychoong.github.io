@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr KuDos — Designing an AI Companion for Cosmetic Care — Emily Choong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .asection ul { list-style: none; margin: 4px 0 22px; padding-left: 4px; color: var(--ink-2); }
+  .asection li {
+    position: relative; padding-left: 22px;
+    margin-bottom: 9px; line-height: 1.5;
+    font-family: var(--sans); font-size: clamp(15px, 1.5vw, 16.5px);
+  }
+  .asection li::before { content: "\2606"; position: absolute; left: 0; top: 1px; font-size: 13px; color: var(--accent-2); }
+  .asection li:last-child { margin-bottom: 0; }
+  .ov-meta { display: grid; gap: 14px; margin: 4px 0 26px; }
+  .ov-meta > div { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: baseline; }
+  .ov-meta .label { padding-top: 4px; }
+  .ov-meta p { margin: 0; color: var(--ink); font-size: clamp(15px, 1.6vw, 17px); }
+  .flow-ph {
+    margin: 8px 0 18px; aspect-ratio: 16 / 7;
+    border: 1px dashed var(--line); background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--faint); text-align: center; padding: 16px;
+  }
+  .loop {
+    margin: 14px 0 0; padding: 18px 22px;
+    border: 1px solid var(--tone-green-edge);
+    border-left: 3px solid var(--accent-2);
+    background: color-mix(in oklab, var(--green) 16%, var(--surface));
+    border-radius: 0 5px 5px 0;
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(16px, 2vw, 20px); line-height: 1.45; color: var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob--page"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">Emily Choong</a>
+    <nav class="nav">
+      <a href="experience.html#dr-kudos">← Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="article" data-screen-label="Dr KuDos write-up">
+
+    <header class="article-head">
+      <span class="label">Dr KuDos · Product &amp; Strategy · 2025</span>
+      <h1>Dr KuDos – Designing an AI Companion for Cosmetic Care</h1>
+    </header>
+
+    <section class="asection">
+      <p class="marker">Overview</p>
+      <div class="ov-meta">
+        <div><span class="label">Role</span><p>Product &amp; Strategy Intern</p></div>
+        <div><span class="label">Duration</span><p>2 months (July – Aug 2025)</p></div>
+        <div><span class="label">Focus</span><p>Patient experience, engagement design, and AI knowledge architecture</p></div>
+      </div>
+      <p>Dr KuDos was building an AI-powered platform connecting cosmetic surgeons and patients. The long-term vision was to create an always-available AI companion that could answer patient questions throughout treatment and recovery, while supporting doctors with evidence-based research tools.</p>
+      <p>When I joined, the product consisted mainly of core features such as treatment discovery and appointment booking. The challenge was clear:</p>
+      <blockquote>How do we encourage patients to engage with the platform regularly, while collecting the information needed to deliver a personalised AI experience?</blockquote>
+    </section>
+
+    <section class="asection">
+      <p class="marker">My Role</p>
+      <p>I worked at the intersection of <strong>product and strategy</strong>, helping define the patient onboarding experience, the long-term engagement mechanisms that would keep people coming back, the information flows between patients, clinic staff and doctors, and the early concepts for an AI knowledge retrieval system.</p>
+      <p>Throughout, I worked closely with the founder, presenting ideas, receiving critical feedback, and iterating. This was my first real exposure to the realities of product development: <em>good ideas rarely emerge fully formed</em>, and refining them through discussion turned out to be as valuable as the ideas themselves.</p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">Mapping the Patient Journey</p>
+      <p>One of my first projects was mapping the patient onboarding and clinic journey. I designed flow diagrams tracing how information would move between <strong>patients, reception and clinic staff, nurses, doctors, and the AI assistant</strong>, across moments like walk-in registration, appointment check-in, treatment logging, post-treatment follow-up, and AI-assisted recovery support.</p>
+      <p>The goal was to find the points where the app could collect genuinely useful information <em>naturally</em>, without ever disrupting the patient experience.</p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">Designing for Engagement</p>
+      <p>To encourage long-term usage, I proposed two major features.</p>
+
+      <h3>Recovery Diary</h3>
+      <p>I pitched a <strong>Recovery Diary</strong>: a space where patients could log milestones and symptoms, upload progress photos, and track their treatment journey over time, choosing for each entry whether to keep it private or share it publicly.</p>
+      <p>What made the idea compelling was that it created value on every side at once: patients gained a personal recovery record, prospective patients could browse <em>authentic</em> recovery experiences, and doctors benefited from transparent, trust-based marketing. The concept was well received and was later incorporated into the app roadmap as a dedicated feature.</p>
+
+      <h3>Gamified Engagement</h3>
+      <p>I also designed a points system to reward activity on the platform. Patients would earn points for completing onboarding, engaging with educational content, asking the AI assistant questions, posting updates to their recovery diary, and sharing experiences with the community. The intention was to create a <em>positive feedback loop</em>:</p>
+      <p class="loop">More engagement → richer patient data → better AI personalisation → more value for patients.</p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">Exploring AI Knowledge Architecture</p>
+      <p>This project also gave me my first exposure to <strong>Retrieval-Augmented Generation (RAG)</strong> systems. The team wanted a specialised AI assistant for cosmetic medicine that could help doctors navigate research and clinical literature more efficiently.</p>
+      <p>Crucially, the doctors I spoke to <em>didn’t</em> want an AI telling them what treatment to give. They wanted something that could surface relevant papers quickly and point them to evidence they could evaluate themselves. So rather than offering treatment plans or medical advice, the assistant would retrieve relevant papers and guidelines, summarise the evidence objectively, cite its sources, and help research unusual symptoms or complications, all while keeping clinicians firmly in control of every decision.</p>
+      <p>On the architecture side, I helped explore how doctors’ questions could be converted into retrieval queries, how medical literature would be ingested into the knowledge base, how that information could be kept current, and what guardrails would reduce hallucinations and maintain trust.</p>
+      <p>Although I left before implementation began, the project introduced me to the real challenge of designing AI for healthcare, where <em>trust, safety and transparency</em> matter every bit as much as technical capability.</p>
+    </section>
+
+    <section class="asection">
+      <p class="marker">Key Takeaways</p>
+      <ul>
+        <li>Product design is inherently iterative; presenting ideas and incorporating feedback is part of the process.</li>
+        <li>User incentives and AI systems are deeply connected: better engagement creates better personalisation.</li>
+        <li>In healthcare, AI should support human expertise rather than automate clinical judgement.</li>
+        <li>Designing information flows can be just as important as designing interfaces.</li>
+      </ul>
+    </section>
+
+    <div class="report-banner">
+      <span>Emily Choong · BSc Data Science with a Year in Industry · University of Bristol</span>
+      <a class="linklet" href="experience.html#dr-kudos">← Back to experience</a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__links">
+      <a href="index.html">← Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+    </div>
+    <small>© 2026 Emily Choong</small>
+  </div>
+</footer>
+
+</body>
+</html>
